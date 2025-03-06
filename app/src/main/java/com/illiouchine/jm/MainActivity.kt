@@ -100,7 +100,9 @@ class MainActivity : ComponentActivity() {
                             navController = navController,
                             pollSetupState = pollSetupState,
                             onAddSubject = { pollSetupViewModel.onAddSubject(it) },
-                            onAddProposal = { pollSetupViewModel.onAddProposal(it) },
+                            onAddProposal = { context, proposal ->
+                                pollSetupViewModel.onAddProposal(context, proposal)
+                                            },
                             onRemoveProposal = { pollSetupViewModel.onRemoveProposal(it) },
                             onGradingSelected = { pollSetupViewModel.onGradingSelected(it) },
                             onSetupFinished = {
